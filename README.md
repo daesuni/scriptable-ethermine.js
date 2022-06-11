@@ -2,7 +2,7 @@
 
  A Scriptable widget that shows the current ethermine status based on ethermine.org API.
 
- ![widget-preview](image/widget.png)
+ ![widget-preview](image/widget_preview.png)
 
  <p>
    <a href="#setup">Setup</a> •
