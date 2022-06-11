@@ -48,7 +48,7 @@ function createWidget(data, coinImg) {
     hashCntnt.bottomAlignContent()
     let hashVal = hashCntnt.addText(data.reportedHashrate.toFixed(2))
     hashVal.textColor = Color.orange()
-    hashVal.font = Font.systemFont(24)
+    hashVal.font = Font.boldSystemFont(22)
 
     // unpaid col
     midRow.addSpacer()
@@ -62,9 +62,9 @@ function createWidget(data, coinImg) {
     let unpaidCntnt = unpaidCol.addStack()
     unpaidCntnt.layoutHorizontally()
     unpaidCntnt.bottomAlignContent()
-    let unpaidVal = unpaidCntnt.addText(data.unpaid.toFixed(5))
+    let unpaidVal = unpaidCntnt.addText(data.unpaid.toFixed(6))
     unpaidVal.textColor = Color.orange()
-    unpaidVal.font = Font.systemFont(24)
+    unpaidVal.font = Font.boldSystemFont(22)
 
     // worker col
     midRow.addSpacer()
@@ -81,7 +81,7 @@ function createWidget(data, coinImg) {
     workerCntnt.bottomAlignContent()
     let workerVal = workerCntnt.addText(data.activeWorkers + '' || 0)
     workerVal.textColor = Color.orange()
-    workerVal.font = Font.systemFont(24)
+    workerVal.font = Font.boldSystemFont(22)
 
     // bot row
     container.addSpacer(10)
