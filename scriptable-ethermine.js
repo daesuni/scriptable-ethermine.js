@@ -8,7 +8,7 @@ const coinImg = await coinImgSrc.loadImage()
 const progressWidth = 280
 const progressHeight = 1
 const progressBackColor = new Color('#fff', 0.2)
-const progressFillColor = Color.orange()
+const accentColor = new Color('#ffb613')
 
 // script
 let widget = createWidget(data, coinImg)
@@ -28,7 +28,7 @@ function createWidget(data, coinImg) {
     // container
     let container = w.addStack()
     container.layoutVertically()
-    container.addSpacer()
+//     container.addSpacer()
 
     // mid row
     let midRow = container.addStack()
@@ -47,7 +47,7 @@ function createWidget(data, coinImg) {
     hashCntnt.layoutHorizontally()
     hashCntnt.bottomAlignContent()
     let hashVal = hashCntnt.addText(data.reportedHashrate.toFixed(2))
-    hashVal.textColor = Color.orange()
+    hashVal.textColor = accentColor
     hashVal.font = Font.boldSystemFont(22)
 
     // unpaid col
@@ -63,7 +63,7 @@ function createWidget(data, coinImg) {
     unpaidCntnt.layoutHorizontally()
     unpaidCntnt.bottomAlignContent()
     let unpaidVal = unpaidCntnt.addText(data.unpaid.toFixed(6))
-    unpaidVal.textColor = Color.orange()
+    unpaidVal.textColor = accentColor
     unpaidVal.font = Font.boldSystemFont(22)
 
     // worker col
@@ -80,7 +80,7 @@ function createWidget(data, coinImg) {
     workerCntnt.layoutHorizontally()
     workerCntnt.bottomAlignContent()
     let workerVal = workerCntnt.addText(data.activeWorkers + '' || 0)
-    workerVal.textColor = Color.orange()
+    workerVal.textColor = accentColor
     workerVal.font = Font.boldSystemFont(22)
 
     // bot row
@@ -88,7 +88,7 @@ function createWidget(data, coinImg) {
     let botRow = container.addStack()
     botRow.layoutVertically()
     
-	// eran col
+   // eran col
     let earnCol = botRow.addStack()
     earnCol.layoutHorizontally()
     earnCol.centerAlignContent()
@@ -103,7 +103,7 @@ function createWidget(data, coinImg) {
     earnVal.textColor = Color.white()
     earnVal.font = Font.systemFont(13)
 
-	// next pay col
+   // next pay col
     botRow.addSpacer(3)
     let nextPayCol = botRow.addStack()
     nextPayCol.layoutHorizontally()
@@ -119,7 +119,7 @@ function createWidget(data, coinImg) {
     nextPayVal.textColor = Color.white()
     nextPayVal.font = Font.systemFont(13)
 
-	// next pct col
+   // next pct col
     botRow.addSpacer(3)
     let nextPctCol = botRow.addStack()
     nextPctCol.layoutHorizontally()
@@ -132,14 +132,14 @@ function createWidget(data, coinImg) {
     nextPctCntnt.layoutHorizontally()
     nextPctCntnt.bottomAlignContent()
     let nextPctVal = nextPctCntnt.addText(data.payoutPct.toFixed(1) + '%')
-    nextPctVal.textColor = Color.orange()
+    nextPctVal.textColor = accentColor
     nextPctVal.font = Font.systemFont(13)
     let nextPctSuf = nextPctCntnt.addText(' of ' + data.minPayoutEth)
     nextPctSuf.textColor = Color.white()
     nextPctSuf.font = Font.systemFont(13)
     
     // prog row
-    container.addSpacer(3)
+    container.addSpacer(10)
     let prgRow = container.addStack()
     prgRow.layoutHorizontally()
     prgRow.centerAlignContent()
@@ -165,7 +165,7 @@ function createProgress(percent) {
     context.fillPath()
 
     // Progress Path
-    context.setFillColor(progressFillColor)  
+    context.setFillColor(accentColor)  
     path = new Path()
     const pathWidth = (progressWidth * (percent / 100) > progressWidth) ? progressWidth : progressWidth * (percent / 100)
     path.addRect(new Rect(0, 0, pathWidth, progressHeight))
